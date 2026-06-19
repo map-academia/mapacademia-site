@@ -1,16 +1,12 @@
-# MaP Academia V1
+# MaP Academia multilingual skeleton
 
-A quiet academic Japandi static website template for GitHub Pages.
+Upload all files to the root of the GitHub repository.
 
-## How to use
-1. Create a GitHub repository named `mapacademia-site`.
-2. Upload all files in this folder.
-3. Go to Settings → Pages → Deploy from branch → main → root.
-4. Add your custom domain `mapacademia.com` in Pages settings.
-5. In DNSPod, add the GitHub Pages DNS records shown by GitHub.
+Structure:
+- `/` language gateway
+- `/zh/` Chinese site
+- `/en/` English site
+- `/ja/` Japanese site
 
-## Edit text
-Open the `.html` files and replace the placeholder copy.
-
-## Edit colors
-Open `assets/styles.css` and change the `:root` color variables.
+The interactive early-adversity article is included at:
+`/zh/essays/neurobiology-of-early-adversity.html`
