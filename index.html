@@ -5,14 +5,245 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Welcome to MaP Lab | MaP 心图研究室</title>
   <link rel="stylesheet" href="/assets/styles.css">
+
+  <style>
+    :root{
+      --map-bg:#f7f2ea;
+      --map-green:#7E9C7E;
+      --map-green-soft:#e8efe6;
+      --map-text:#4a4a4a;
+      --map-muted:#8b8178;
+      --map-border:#d9e3d6;
+    }
+
+    body.gateway-page{
+      background:var(--map-bg);
+      color:var(--map-text);
+    }
+
+    .gateway-page .wrap{
+      max-width:1180px;
+      margin:0 auto;
+      padding:24px 34px 30px;
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+    }
+
+    .gateway-page .nav{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:24px;
+      margin-bottom:86px;
+    }
+
+    .gateway-page .brand-welcome{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      text-decoration:none;
+      color:var(--map-green);
+      line-height:1.15;
+    }
+
+    .gateway-page .brand-welcome::before{
+      content:"";
+      display:block;
+      width:58px;
+      height:58px;
+      flex:0 0 58px;
+      background-image:url("/assets/map-logo-nobg.png");
+      background-size:contain;
+      background-repeat:no-repeat;
+      background-position:center;
+    }
+
+    .gateway-page .brand-text{
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:2px;
+      padding-top:2px;
+    }
+
+    .gateway-page .brand-text span:first-child{
+      font-family: Georgia, "Times New Roman", "Noto Serif SC", serif;
+      font-size:1.18rem;
+      font-weight:700;
+      letter-spacing:.01em;
+    }
+
+    .gateway-page .brand-text span:last-child{
+      font-family: "Noto Serif SC", "Songti SC", serif;
+      font-size:1.02rem;
+      font-weight:600;
+      letter-spacing:.02em;
+    }
+
+    .gateway-page .langs{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      padding-top:3px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .gateway-page .pill{
+      border:1px solid var(--map-border);
+      border-radius:999px;
+      padding:10px 18px;
+      color:#4f584f;
+      background:rgba(255,255,255,.45);
+      text-decoration:none;
+      font-size:.92rem;
+      transition:background .18s ease, transform .18s ease;
+    }
+
+    .gateway-page .pill:hover{
+      background:var(--map-green-soft);
+      transform:translateY(-1px);
+    }
+
+    .gateway-page .gateway-hero{
+      flex:1;
+    }
+
+    .gateway-page .gateway-title{
+      font-family: Georgia, "Times New Roman", "Noto Serif SC", serif;
+      font-size:clamp(3.55rem, 8vw, 5.35rem);
+      line-height:1.08;
+      letter-spacing:-.045em;
+      color:var(--map-green);
+      margin:0 0 28px;
+      max-width:850px;
+      font-weight:700;
+    }
+
+    .gateway-page .mantra{
+      font-family:"Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+      color:var(--map-muted);
+      font-size:clamp(1.18rem, 2vw, 1.45rem);
+      line-height:1.6;
+      letter-spacing:.035em;
+      margin:0 0 44px;
+      font-weight:400;
+    }
+
+    .gateway-page .platform-line{
+      color:var(--map-muted);
+      font-size:.98rem;
+      margin:-28px 0 44px;
+      line-height:1.7;
+    }
+
+    .gateway-page .clean-language-grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:24px;
+      margin-top:6px;
+    }
+
+    .gateway-page .clean-language-card{
+      min-height:170px;
+      border:1px solid var(--map-border);
+      border-radius:30px;
+      background:rgba(255,255,255,.58);
+      text-decoration:none;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:28px;
+      transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+
+    .gateway-page .clean-language-card:hover{
+      transform:translateY(-3px);
+      background:rgba(255,255,255,.78);
+      box-shadow:0 14px 36px rgba(126,156,126,.13);
+    }
+
+    .gateway-page .clean-language-card h2{
+      margin:0 0 12px;
+      font-family:Georgia, "Times New Roman", "Noto Serif SC", serif;
+      font-size:2.15rem;
+      line-height:1.1;
+      color:var(--map-green);
+      font-weight:700;
+    }
+
+    .gateway-page .clean-language-card p{
+      margin:0;
+      font-size:.96rem;
+      color:var(--map-muted);
+      line-height:1.6;
+    }
+
+    .gateway-page .gateway-footer{
+      margin-top:54px;
+      padding-top:0;
+      border-top:none;
+      color:var(--map-muted);
+      font-size:.92rem;
+      line-height:1.7;
+    }
+
+    .gateway-page .footer-logo{
+      display:none;
+    }
+
+    .gateway-page .footer-statement{
+      margin:0 0 5px;
+    }
+
+    .gateway-page .footer-pi{
+      margin:0;
+      font-size:.84rem;
+      color:#9b9289;
+    }
+
+    @media (max-width:800px){
+      .gateway-page .wrap{
+        padding:22px 20px 26px;
+      }
+
+      .gateway-page .nav{
+        flex-direction:column;
+        margin-bottom:64px;
+      }
+
+      .gateway-page .langs{
+        justify-content:flex-start;
+      }
+
+      .gateway-page .gateway-title{
+        font-size:clamp(3rem, 14vw, 4.2rem);
+      }
+
+      .gateway-page .clean-language-grid{
+        grid-template-columns:1fr;
+        gap:16px;
+      }
+
+      .gateway-page .clean-language-card{
+        min-height:135px;
+      }
+    }
+  </style>
 </head>
 <body class="gateway-page">
   <div class="wrap">
     <nav class="nav">
-      <a class="brand brand-welcome" href="/">
-        <span>Welcome to MaP Lab</span>
-        <span>欢迎来到 MaP 心图研究室</span>
+      <a class="brand brand-welcome" href="/" aria-label="MaP Lab home">
+        <span class="brand-text">
+          <span>Welcome to MaP Lab</span>
+          <span>欢迎来到 MaP 心图研究室</span>
+        </span>
       </a>
+
       <div class="langs" aria-label="Language navigation">
         <a class="pill" href="/zh/">中文</a>
         <a class="pill" href="/en/">English</a>
@@ -22,18 +253,29 @@
 
     <main class="hero gateway-hero">
       <h1 class="h1 gateway-title">Mapping Minds.<br>Understanding Development.<br>Supporting Change.</h1>
-      <p class="mantra">以发展为脉，以系统为镜，以人性为本。</p>
+
+      <p class="mantra">以发展为脉 · 以系统为镜 · 以人性为本</p>
+      <p class="platform-line">MaP 是一个连接研究、教育与心理理解工具的多语言知识平台。</p>
 
       <section class="language-grid clean-language-grid" aria-label="Choose language">
-        <a class="language-card clean-language-card" href="/zh/"><h2>中文</h2></a>
-        <a class="language-card clean-language-card" href="/en/"><h2>English</h2></a>
-        <a class="language-card clean-language-card" href="/ja/"><h2>日本語</h2></a>
+        <a class="language-card clean-language-card" href="/zh/">
+          <h2>中文</h2>
+          <p>进入中文主站</p>
+        </a>
+
+        <a class="language-card clean-language-card" href="/en/">
+          <h2>English</h2>
+          <p>Enter English site</p>
+        </a>
+
+        <a class="language-card clean-language-card" href="/ja/">
+          <h2>日本語</h2>
+          <p>日本語サイトへ</p>
+        </a>
       </section>
     </main>
 
     <footer class="footer gateway-footer">
-      <img src="/assets/map-logo-nobg.png" alt="MaP logo" class="footer-logo">
-      <p class="footer-statement">MaP 是一个连接研究、教育与心理理解工具的多语言知识平台。</p>
       <p class="footer-pi">PI: Dr Charlotte Walton | University of Southampton | School of Psychology</p>
     </footer>
   </div>
